@@ -1,0 +1,43 @@
+{
+  "name": "fogos",
+  "version": "1.0.0",
+  "description": "Site que mostra no mapa todos os fogos ativos em Portugal, juntamente com um sistema de notificações em tempo real.",
+  "main": "main.js",
+  "scripts": {
+    "start": "node src/main.js",
+    "dev": "nodemon src/main.js",
+    "test": "mocha"
+  },
+  "keywords": [
+    "incêndios",
+    "fogos",
+    "Portugal",
+    "mapa",
+    "notificações",
+    "tempo real"
+  ],
+  "author": "Bruno Ribeiro | BlackEnergyPT",
+  "contributors": [
+    {
+      "name": "Bruno Ribeiro",
+      "email": "brunoribeiro@devcode.pt"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/blackenergypt/fogos.info/issues"
+  },
+  "homepage": "https://github.com/blackenergypt/fogos.info",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blackenergypt/fogos.info"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "http": "^0.0.1-security"
+  },
+  "devDependencies": {
+    "biome": "0.3.3"
+  },
+  "license": "ISC"
+}
