@@ -1,21 +1,22 @@
-const fs = require('node:fs');
 const http = require('node:http');
-
+const path = require('node:path');
+const expressLayouts = require('express-ejs-layouts');
 const express = require('express');
+
 const app = express();
 
-// Carregar certificados SSL
-//const options = {
-//    key: fs.readFileSync('./http/certs/key.pem'),
-//    cert: fs.readFileSync('./http/certs/cert.pem')
-//};
+// Configuração de Middleware
+app.set('views', path.join(__dirname, '..', 'views')); // Atualiza o caminho
+app.set('view engine', 'ejs');
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(expressLayouts);
+app.use(express.static(path.join(__dirname, '..', '..', 'public')));
 
-// Rota de exemplo
-app.get('/', (req, res) => {
-    res.send('Servidor HTTPS está rodando!');
-});
+const pagesRouter = require('../routers/pagesRouter');
 
-// Criar servidor HTTPS
+app.use('/', pagesRouter);
+
+// Criar servidor HTTP
 const server = http.createServer(app);
-// const server =  https.createServer(options, app);
 module.exports = server;
